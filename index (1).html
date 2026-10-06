@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f1a30">
+<title>Players3P</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Players3P</h1>
+  <p>Lecteur audio web avec synthétiseur intégré, égaliseur et spectre en direct.</p>
+</header>
+<main class="app">
+  <section class="player" aria-label="Lecteur">
+    <canvas id="viz" aria-hidden="true"></canvas>
+    <h2 id="title">Choisis un morceau</h2>
+    <p id="artist" class="mut">&nbsp;</p>
+    <p id="status" class="mut" role="status"></p>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Progression">
+    <div class="times"><span id="t1">0:00</span><span id="t2">0:00</span></div>
+    <div class="ctrl">
+      <button id="shuf" aria-label="Lecture aléatoire" aria-pressed="false" title="Aléatoire (S)">⇄</button>
+      <button id="prev" aria-label="Précédent" title="Précédent (P)">⏮</button>
+      <button id="pp" aria-label="Lecture" title="Lecture / pause (espace)">▶</button>
+      <button id="next" aria-label="Suivant" title="Suivant (N)">⏭</button>
+      <button id="rep" aria-label="Répétition désactivée" title="Répéter (R)">↻</button>
+    </div>
+    <label class="slider">Volume <input id="vol" type="range" min="0" max="100" value="70"></label>
+    <fieldset class="eq">
+      <legend>Égaliseur</legend>
+      <label>Graves <input type="range" min="-12" max="12" step="1" value="0" data-eq="0"></label>
+      <label>Médiums <input type="range" min="-12" max="12" step="1" value="0" data-eq="1"></label>
+      <label>Aigus <input type="range" min="-12" max="12" step="1" value="0" data-eq="2"></label>
+    </fieldset>
+    <p class="mut small">Raccourcis : espace, ← →, ↑ ↓, N, P, S, R, M</p>
+  </section>
+  <section class="lib" aria-label="Bibliothèque">
+    <div class="tools">
+      <input id="q" type="search" placeholder="Rechercher un titre" aria-label="Rechercher">
+      <button id="favOnly" aria-pressed="false">♥ Favoris</button>
+    </div>
+    <ul id="list"></ul>
+    <label class="drop"><input id="files" type="file" accept="audio/*" multiple hidden>Ajouter ou glisser-déposer des fichiers audio</label>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
